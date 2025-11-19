@@ -1,0 +1,78 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search_form {
+    max-width: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+  }
+  
+  .search_form input {
+    margin-right: 10px;
+    width: 50%;
+  }
+  
+  .noposts {
+    text-align: center;
+  }
+  
+  .noposts p {
+    margin-bottom: 1.5em;
+  }
+  
+  .noposts a {
+    padding: 10px 25px;
+  }
+
+/* --- ESTILOS TMDB (NOVO) --- */
+
+.movie_section {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+.movie_section h2 {
+    margin-bottom: 20px;
+}
+
+/* Container que permite a rolagem horizontal */
+.movie_list {
+    display: flex;
+    overflow-x: auto; 
+    gap: 15px;
+    padding-bottom: 15px; 
+}
+
+.movie_card {
+    flex-shrink: 0; /* Impede que os cards encolham */
+    width: 150px; /* Largura fixa para o card de filme */
+    text-align: center;
+    cursor: pointer;
+}
+
+.movie_card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.movie_card img:hover {
+    transform: scale(1.05);
+}
+
+.movie_card h4 {
+    font-size: 0.9em;
+    margin-top: 5px;
+    white-space: nowrap; /* Impede que o título quebre linha */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." se o título for muito longo */
+}

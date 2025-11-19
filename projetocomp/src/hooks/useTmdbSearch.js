@@ -41,7 +41,7 @@ export const useTmdbSearch = () => {
         }
     }, []); // Array de dependências vazio
 
-    // 4. Um hook deve retornar dados e funções
+    // 4. Um hook deve retornar dados e funções, não JSX
     return {
         movies,
         loading,
