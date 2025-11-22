@@ -1,7 +1,15 @@
 .registrar {
     text-align: center;
+    padding: 20px;
 }
 
 .registrar p{
     color:#aaa;
+}
+
+@media (min-width: 600px) {
+    .registrar {
+        padding: 40px;
+        margin-top: 50px;
+    }
 }

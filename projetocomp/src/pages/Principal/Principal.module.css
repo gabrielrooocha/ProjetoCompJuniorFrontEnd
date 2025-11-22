@@ -1,8 +1,5 @@
-/* ------------------ Layout Principal ------------------ */
-
-/* ✅ NOVO: Container para fixar o TÍTULO e a BARRA DE PESQUISA */
 .search_header {
-  position: grid; 
+  position: static; 
   top: 0; 
   z-index: 10; 
   background-color: transparent; 
@@ -10,45 +7,52 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0 20px 0;
+  padding: 10px;
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* ------------------ Barra de Pesquisa ------------------ */
-
 .search_form {
-  max-width: 100%;
-  width: 50%; 
+  max-width: 90%;
+  width: 100%; 
   display: flex;
   justify-content: center;
   margin-bottom: 0; 
   background-color: #772A23;
+  padding: 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .search_form input {
-  margin-right: 10px;
+  margin-right: 8px;
   width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
 }
 
-/* ------------------ Container da Lista (GRID) ------------------ */
+.search_form button {
+  padding: 10px 15px;
+  font-size: 1em;
+  white-space: nowrap;
+}
 
 .movie_list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
   list-style: none; 
   padding: 0;
-  margin: 20px auto;
-  max-width: 90%;
+  margin: 15px auto;
+  max-width: 95%;
 }
 
-/* ------------------ Card Individual de Filme ------------------ */
-
 .movie_card {
-  /* ✅ Ajustado: Remove largura fixa ou flex-shrink para não atrapalhar o grid */
   background-color: transparent; 
   border-radius: 6px; 
-  padding: 10px;
+  padding: 8px;
   text-align: center;
   color: #e0e0e0; 
   cursor: pointer;
@@ -58,25 +62,22 @@
 
 .movie_card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(158, 158, 158, 0.15); 
+  box-shadow: 0 0 10px rgba(158, 158, 158, 0.25); 
 }
-
-/* ------------------ Elementos do Card ------------------ */
 
 .movie_card img {
   width: 100%; 
   height: auto;
   border-radius: 4px; 
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   object-fit: cover;
   display: block; 
 }
 
-/* Título e Avaliação */
 .movie_card .title {
-  font-size: 1em; 
+  font-size: 0.9em; 
   font-weight: 600;
-  margin: 5px 0 2px 0;
+  margin: 4px 0 2px 0;
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -86,18 +87,59 @@
   display: flex; 
   justify-content: center;
   align-items: center;
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: 500;
   color: #F1BB5B; 
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 .rating::before {
   content: "⭐";
-  margin-right: 5px;
-  font-size: 1.1em;
+  margin-right: 4px;
+  font-size: 1em;
 }
 
 .description {
   display: none; 
+}
+
+@media (min-width: 768px) {
+  .search_header {
+      padding: 15px 0 30px 0;
+  }
+  
+  .search_form {
+      max-width: 600px; 
+      width: 60%;
+      padding: 10px;
+  }
+  
+  .search_form input {
+      padding: 12px;
+      font-size: 1.1em;
+  }
+
+  .search_form button {
+      padding: 12px 20px;
+      font-size: 1.1em;
+  }
+
+  .movie_list {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1200px;
+  }
+  
+  .movie_card {
+      padding: 10px;
+  }
+  
+  .movie_card .title {
+      font-size: 1em; 
+  }
+
+  .movie_card .rating {
+      font-size: 0.9em;
+  }
 }

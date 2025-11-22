@@ -1,18 +1,31 @@
 .about {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.about p {
+  color: #aaa;
+  margin-bottom: 2em;
+  max-width: 90%;
+  font-size: 1em;
+}
+
+.about a {
+  display: block;
+  margin-top: 15px;
+  padding: 10px 15px;
+}
+
+@media (min-width: 768px) {
+  .about {
+      padding: 40px;
   }
-  
+
   .about p {
-    color: #aaa;
-    margin-bottom: 2em;
-    max-width: 800px
+      max-width: 800px;
+      font-size: 1.1em;
   }
-  
-  .about a {
-    display: block;
-    margin-top: 15px;
-    padding: 10px 15px;
-  }
+}

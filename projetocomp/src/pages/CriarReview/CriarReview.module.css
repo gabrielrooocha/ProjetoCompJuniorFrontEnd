@@ -1,73 +1,71 @@
 .review_container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #2c2c2c;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  color: #e0e0e0;
-  position: relative; 
-  overflow: hidden; 
-  z-index: 1;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #2c2c2c;
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
+    position: relative; 
+    overflow: hidden; 
+    z-index: 1;
 }
 
-/* Desfoque e um pouquinho de escurecimento */
 .review_container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  
-  background-image: inherit; 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  background-color: rgba(0, 0, 0, 0.3);
-  background-blend-mode: multiply;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    background-image: inherit; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
 
-  filter: blur(5px); /* Efeito de desfoque */
-  
-  z-index: -1; 
-  
-  transition: background-image 0.5s ease;
+    filter: blur(5px); 
+    
+    z-index: -1; 
+    
+    transition: background-image 0.5s ease;
 
-  transform: scale(1.1); 
+    transform: scale(1.1); 
 }
 
 .review_container > * {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
 }
 
 .review_container:not([style*="background-image"]) {
-  background-color: #1e1e1e;
+    background-color: #1e1e1e;
 }
 .review_container:not([style*="background-image"])::before {
-  content: none; 
+    content: none; 
 }
 
 .review_container h1 {
     text-align: center;
     color: #ffffff;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-weight: bold;
+    font-size: 1.8em;
 }
-
-/*Formulário*/
 
 .review_form label {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: 600;
 }
 
 .review_form span {
     display: block;
-    margin-bottom: 8px;
-    font-size: 1.1em;
+    margin-bottom: 6px;
+    font-size: 1em;
     color: #e2e2e2;
 }
 
@@ -75,18 +73,18 @@
 .review_form input[type="number"],
 .review_form textarea {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     border-radius: 4px;
     background-color: #cfcfcf;
     font-family: "Lexend";
     color: #000000;
-    font-size: 1em;
-    box-sizing: border-box; /* Garante que padding não aumenta a largura total */
+    font-size: 0.9em;
+    box-sizing: border-box; 
 }
 
 .review_form textarea {
     resize: vertical;
-    min-height: 150px;
+    min-height: 120px;
 }
 
 .review_form input:focus,
@@ -95,30 +93,28 @@
     outline: none;
 }
 
-/* ------------------ Seletor de Filme ------------------ */
-
 .search_results_dropdown {
     position: relative;
-    margin-top: 10px; 
-    padding: 10px;
+    margin-top: 8px; 
+    padding: 8px;
     background-color: #383838;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-    max-height: 400px; 
+    max-height: 300px; 
     overflow-y: auto;
     z-index: 100;
 }
 
 .search_results_dropdown > p {
-    font-size: 0.9em;
-    margin-bottom: 10px;
+    font-size: 0.8em;
+    margin-bottom: 8px;
     color: #888;
 }
 
 .movie_list {
     display: flex; 
-    flex-wrap: wrap; 
-    gap: 10px;
+    flex-direction: column; 
+    gap: 8px;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -129,10 +125,11 @@
     align-items: center;
     background-color: #383838;
     border-radius: 4px;
-    padding: 5px;
+    padding: 8px;
     cursor: pointer;
     transition: background-color 0.2s;
-    width: 280px; 
+    width: 100%; 
+    box-sizing: border-box;
     flex-shrink: 0;
 }
 
@@ -141,15 +138,15 @@
 }
 
 .movie_card img {
-    width: 40px; 
-    height: 60px;
+    width: 35px; 
+    height: 50px;
     border-radius: 3px;
-    margin-right: 10px;
+    margin-right: 8px;
     object-fit: cover;
 }
 
 .movie_card .title {
-    font-size: 0.9em;
+    font-size: 0.85em;
     font-weight: 500;
     margin: 0;
     flex-grow: 1;
@@ -162,7 +159,7 @@
     font-size: 0.8em;
     font-weight: bold;
     color: #F1BB5B;
-    margin-left: 10px;
+    margin-left: 8px;
 }
 
 .rating::before {
@@ -171,78 +168,144 @@
     font-size: 0.9em;
 }
 
-/* Filme Selecionado */
 .selected_movie {
     background-color: #5d9d74;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #fff;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.9em;
 }
 
 .deselect_btn {
     background-color: #4a805b;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.2s;
+    font-size: 0.8em;
 }
 
 .deselect_btn:hover {
     background-color: #3b6b49;
 }
 
-
-/* Botão de Publicar */
-
 .publish_btn {
     display: block;
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     background-color: #D7182A; 
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .publish_btn:hover {
     background-color: #92342b;
 }
 
-/*Mensagens de Feedback */
-
 .loading {
     color: #ffffff;
     text-align: center;
+    font-size: 1em;
+}
+
+.error_message, .success_message {
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9em;
 }
 
 .error_message {
     color: #ff6b6b;
     background-color: #442a2a;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
 }
 
 .success_message {
     color: #6bff95;
     background-color: #2a4430;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
+}
+
+@media (min-width: 600px) {
+    .review_container {
+        max-width: 650px;
+        margin: 30px auto;
+        padding: 30px;
+        border-radius: 8px;
+    }
+
+    .review_container h1 {
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+    
+    .review_form span {
+        font-size: 1.1em;
+    }
+
+    .review_form input[type="text"],
+    .review_form input[type="number"],
+    .review_form textarea {
+        padding: 15px;
+        font-size: 1em;
+    }
+
+    .review_form textarea {
+        min-height: 150px;
+    }
+    
+    .search_results_dropdown {
+        max-height: 400px; 
+    }
+
+    .movie_list {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        gap: 15px;
+    }
+    
+    .movie_card {
+        width: 300px;
+        flex-shrink: 0;
+    }
+    
+    .movie_card img {
+        width: 40px; 
+        height: 60px;
+    }
+
+    .movie_card .title {
+        font-size: 0.9em;
+    }
+    
+    .selected_movie {
+        font-size: 1em;
+    }
+
+    .publish_btn {
+        padding: 15px;
+        font-size: 1.2em;
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 800px) {
+    .review_container {
+        max-width: 800px;
+        margin: 50px auto;
+    }
 }

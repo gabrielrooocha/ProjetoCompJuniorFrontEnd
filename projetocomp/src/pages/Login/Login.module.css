@@ -1,8 +1,15 @@
 .login {
   text-align: center;
+  padding: 20px;
 }
 
 .login p {
   color: #aaa;
 }
 
+@media (min-width: 600px) {
+  .login {
+      padding: 40px;
+      margin-top: 50px;
+  }
+}

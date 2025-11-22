@@ -10,6 +10,13 @@ const Login = () => {
 
     const { login, erro: authErro, loading } = useAuthentication();
 
+    useEffect(() => {
+        const storedEmail = localStorage.getItem('lastUsedEmail');
+        if (storedEmail) {
+            setEmail(storedEmail);
+        }
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -19,9 +26,12 @@ const Login = () => {
             email,
             password,
         };
-        
+
+        localStorage.setItem('lastUsedEmail', email);
+
         const res = await login(user);
     };
+    
 
     useEffect(() => {
         if (authErro) {

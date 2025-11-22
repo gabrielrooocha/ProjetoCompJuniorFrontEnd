@@ -1,5 +1,3 @@
-/* --- NOVAS CLASSES PARA EDIÇÃO --- */
-
 .review_card label {
     display: block;
     margin-bottom: 10px;
@@ -10,23 +8,24 @@
     font-weight: 600;
     color: #e0e0e0;
     margin-bottom: 5px;
+    font-size: 0.9em;
 }
 
 .delete_btn {
-    background-color: #D7182A; /* Vermelho forte para indicar ação de exclusão */
-    font-family: "Lexend"; /* Mantém a consistência da fonte */
+    background-color: #D7182A; 
+    font-family: "Lexend"; 
     color: white;
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
     border: none;
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 .delete_btn:hover {
-    background-color: #92342b; /* Vermelho um pouco mais escuro no hover */
+    background-color: #92342b; 
 }
 
 .edit_textarea {
@@ -35,22 +34,24 @@
     border-radius: 4px;
     background-color: #4a4a4a;
     color: #ffffff;
-    border: 1px solid #D7182A; /* Borda destacada */
+    border: 1px solid #D7182A; 
     resize: vertical;
+    min-height: 100px;
+    font-size: 0.9em;
 }
 
 .edit_input_rating {
-    width: 80px;
-    padding: 8px;
+    width: 60px;
+    padding: 6px;
     font-family: "Lexend";
     border-radius: 4px;
     background-color: #4a4a4a;
     color: #ffffff;
     border: 1px solid #D7182A;
     text-align: center;
+    font-size: 0.9em;
 }
 
-/* Esconde o fundo padrão no modo de visualização */
 .review_text, .rating_display {
     border: none;
     background: #e0e0e0;
@@ -59,20 +60,27 @@
     cursor: default;
     width: 100%;
     display: block;
+    padding: 8px;
+    min-height: 35px;
+    overflow-wrap: break-word;
 }
 
-/* Botões de Ação na Edição */
-.save_btn {
-    background-color: #5d9d74;
+.save_btn, .cancel_btn, .edit_btn {
     font-family: "Lexend";
     color: white;
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
     border: none;
-    font-size: 0.9em;
+    font-size: 0.8em;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.save_btn {
+    background-color: #5d9d74;
 }
 
 .save_btn:hover {
@@ -81,45 +89,32 @@
 
 .cancel_btn {
     background-color: #D7182A;
-    font-family: "Lexend";
-    color: white;
-    padding: 8px 15px;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border: none;
-    font-size: 0.9em;
 }
 
 .cancel_btn:hover {
     background-color: #555;
 }
 
-/* Mensagens de Feedback no Card */
-.error_message {
-    color: #ff6b6b;
-    background-color: #442a2a;
+.error_message, .success_message {
     font-family: "Lexend";
     padding: 8px;
     border-radius: 4px;
     margin-bottom: 10px;
     font-weight: bold;
     text-align: center;
+    font-size: 0.8em;
+}
+
+.error_message {
+    color: #ff6b6b;
+    background-color: #442a2a;
 }
 
 .success_message {
     color: #6bff95;
     background-color: #2a4430;
-    padding: 8px;
-    font-family: "Lexend";
-    border-radius: 4px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-align: center;
 }
 
-/* Ajustes no layout de Ações */
 .actions {
     display: flex;
     gap: 10px;
@@ -129,20 +124,38 @@
     border-top: 1px solid #444;
 }
 
-/* Ajuste o botão de editar para o estilo de ação */
 .edit_btn {
     background-color: #5d9d74;
-    color: white;
-    padding: 8px 15px;
-    font-family: "Lexend";
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border: none;
-    font-size: 0.9em;
 }
 
 .edit_btn:hover {
     background-color: #4a805b;
+}
+
+/* Media Query para telas maiores (Tablet e Desktop) */
+@media (min-width: 768px) {
+    .review_card span.label_text {
+        font-size: 1em;
+    }
+    
+    .delete_btn, .save_btn, .cancel_btn, .edit_btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        flex-grow: 0;
+    }
+
+    .edit_input_rating {
+        width: 80px;
+        padding: 8px;
+        font-size: 1em;
+    }
+
+    .edit_textarea {
+        font-size: 1em;
+    }
+    
+    .actions {
+        padding-top: 15px;
+        gap: 15px;
+    }
 }

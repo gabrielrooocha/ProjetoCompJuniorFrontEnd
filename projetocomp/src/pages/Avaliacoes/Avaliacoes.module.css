@@ -1,32 +1,29 @@
-/* src/pages/Avaliacoes/Avaliacoes.module.css */
 .dashboard {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 20px;
+    max-width: 100%;
+    margin: 15px auto;
+    padding: 15px;
     background-color: #1e1e1e;
     color: #e0e0e0;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Seção de Recomendações (Topo) --- */
-
 .recommendations_section h1 {
-    font-size: 2em;
+    font-size: 1.6em;
     color: #ffffff;
     border-bottom: 2px solid #D7182A;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
     display: inline-block;
+    width: 100%;
 }
 
 .recommendations_list {
     display: flex;
-    overflow-x: auto; /* Permite rolar horizontalmente se necessário */
+    overflow-x: auto; 
     gap: 15px;
     padding: 10px 0;
     margin-bottom: 20px;
-    /* Estilo para a barra de rolagem (opcional) */
     scrollbar-width: thin;
     scrollbar-color: #D7182A #2c2c2c; 
 }
@@ -36,12 +33,16 @@
     color: #e0e0e0;
     font-family: "Lexend";
     border: 1px solid #555;
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s;
-    float: right; /* Alinha à direita */
+    float: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     margin-top: 10px;
+    text-align: center;
 }
 
 .refresh_btn:hover {
@@ -52,32 +53,35 @@
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, #1e1e1e, #D7182A, #1e1e1e);
-    margin: 40px 0;
+    margin: 30px 0;
 }
-
-
-/* --- Seção de Avaliações (Fundo) --- */
 
 .reviews_header {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
 }
 
 .reviews_header h2 {
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: #ffffff;
 }
 
 .new_review_btn {
     background-color: #D7182A;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s;
+    font-size: 0.9em;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .new_review_btn:hover {
@@ -86,15 +90,15 @@
 
 .reviews_list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Layout responsivo */
-    gap: 25px;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
 .no_reviews {
-    grid-column: 1 / -1; /* Ocupa a largura total do grid */
+    grid-column: 1 / -1; 
     text-align: center;
-    padding: 40px;
-    font-size: 1.2em;
+    padding: 30px;
+    font-size: 1em;
     color: #aaa;
     border: 1px dashed #444;
     border-radius: 8px;
@@ -103,5 +107,58 @@
 .loading, .error_message {
     grid-column: 1 / -1;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
+}
+
+@media (min-width: 600px) {
+    .dashboard {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 25px;
+        border-radius: 8px;
+    }
+
+    .refresh_btn {
+        float: right;
+        width: auto;
+        margin-top: 0;
+    }
+
+    .recommendations_section h1 {
+        width: auto;
+    }
+    
+    .reviews_header {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .new_review_btn {
+        width: auto;
+    }
+
+    .reviews_list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .dashboard {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 40px;
+    }
+
+    .recommendations_section h1 {
+        font-size: 2em;
+    }
+
+    .reviews_header h2 {
+        font-size: 1.8em;
+    }
+    
+    .reviews_list {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
 }
