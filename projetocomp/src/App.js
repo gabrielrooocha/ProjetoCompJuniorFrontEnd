@@ -13,8 +13,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Login from './pages/Login/Login';
 import Registrar from './pages/Registrar/Registrar';
-import CriarPost from './pages/CriarPost/CriarPost';
-import Dashboard from './pages/Dashboard/Dashboard';
+import CriarPost from './pages/CriarReview/CriarReview';
+import Dashboard from './pages/Avaliacoes/Avaliacoes';
+import MovieList from './pages/MovieList/MovieList';
 
 
 function App() {
@@ -42,12 +43,12 @@ function App() {
           <div className = "container">
             <Routes>
             <Route path="/" element={<Principal/>}/>
+            <Route path="/movielist" element={<MovieList/>}/>
             <Route path="/sobre" element={<Sobre/>}/>
             <Route path="/login" element={!user ? <Login/> : <Navigate to="/" />}/>
             <Route path="/registrar" element={!user ? <Registrar/> : <Navigate to="/" />}/>
             <Route path="/posts/create" element={user ? <CriarPost/> : <Navigate to="/login"/>}/>
             <Route path="/dashboard" element={user ? <Dashboard/> : <Navigate to="/login"/>}/>
-            {}
              </Routes>
             </div>
           <Footer/>

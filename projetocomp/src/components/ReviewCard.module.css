@@ -1,0 +1,148 @@
+/* --- NOVAS CLASSES PARA EDIÇÃO --- */
+
+.review_card label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.review_card span.label_text {
+    display: block;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 5px;
+}
+
+.delete_btn {
+    background-color: #D7182A; /* Vermelho forte para indicar ação de exclusão */
+    font-family: "Lexend"; /* Mantém a consistência da fonte */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    font-size: 0.9em;
+}
+
+.delete_btn:hover {
+    background-color: #92342b; /* Vermelho um pouco mais escuro no hover */
+}
+
+.edit_textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: 1px solid #D7182A; /* Borda destacada */
+    resize: vertical;
+}
+
+.edit_input_rating {
+    width: 80px;
+    padding: 8px;
+    font-family: "Lexend";
+    border-radius: 4px;
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: 1px solid #D7182A;
+    text-align: center;
+}
+
+/* Esconde o fundo padrão no modo de visualização */
+.review_text, .rating_display {
+    border: none;
+    background: #e0e0e0;
+    border-radius: 5px;
+    font-family: "Lexend";
+    cursor: default;
+    width: 100%;
+    display: block;
+}
+
+/* Botões de Ação na Edição */
+.save_btn {
+    background-color: #5d9d74;
+    font-family: "Lexend";
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    font-size: 0.9em;
+}
+
+.save_btn:hover {
+    background-color: #4a805b;
+}
+
+.cancel_btn {
+    background-color: #D7182A;
+    font-family: "Lexend";
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    font-size: 0.9em;
+}
+
+.cancel_btn:hover {
+    background-color: #555;
+}
+
+/* Mensagens de Feedback no Card */
+.error_message {
+    color: #ff6b6b;
+    background-color: #442a2a;
+    font-family: "Lexend";
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success_message {
+    color: #6bff95;
+    background-color: #2a4430;
+    padding: 8px;
+    font-family: "Lexend";
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Ajustes no layout de Ações */
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    font-family: "Lexend";
+    padding-top: 10px;
+    border-top: 1px solid #444;
+}
+
+/* Ajuste o botão de editar para o estilo de ação */
+.edit_btn {
+    background-color: #5d9d74;
+    color: white;
+    padding: 8px 15px;
+    font-family: "Lexend";
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    font-size: 0.9em;
+}
+
+.edit_btn:hover {
+    background-color: #4a805b;
+}

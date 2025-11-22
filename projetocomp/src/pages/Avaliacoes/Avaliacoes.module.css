@@ -1,0 +1,107 @@
+/* src/pages/Avaliacoes/Avaliacoes.module.css */
+.dashboard {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Seção de Recomendações (Topo) --- */
+
+.recommendations_section h1 {
+    font-size: 2em;
+    color: #ffffff;
+    border-bottom: 2px solid #D7182A;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.recommendations_list {
+    display: flex;
+    overflow-x: auto; /* Permite rolar horizontalmente se necessário */
+    gap: 15px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    /* Estilo para a barra de rolagem (opcional) */
+    scrollbar-width: thin;
+    scrollbar-color: #D7182A #2c2c2c; 
+}
+
+.refresh_btn {
+    background-color: #383838;
+    color: #e0e0e0;
+    font-family: "Lexend";
+    border: 1px solid #555;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    float: right; /* Alinha à direita */
+    margin-top: 10px;
+}
+
+.refresh_btn:hover {
+    background-color: #D7182A;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #1e1e1e, #D7182A, #1e1e1e);
+    margin: 40px 0;
+}
+
+
+/* --- Seção de Avaliações (Fundo) --- */
+
+.reviews_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.reviews_header h2 {
+    font-size: 1.8em;
+    color: #ffffff;
+}
+
+.new_review_btn {
+    background-color: #D7182A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.new_review_btn:hover {
+    background-color: #92342b;
+}
+
+.reviews_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Layout responsivo */
+    gap: 25px;
+}
+
+.no_reviews {
+    grid-column: 1 / -1; /* Ocupa a largura total do grid */
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #aaa;
+    border: 1px dashed #444;
+    border-radius: 8px;
+}
+
+.loading, .error_message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+}

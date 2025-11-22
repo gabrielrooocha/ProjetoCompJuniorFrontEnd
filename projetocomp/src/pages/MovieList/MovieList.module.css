@@ -1,0 +1,116 @@
+.movie_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    list-style: none; 
+    padding: 0;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+.movie_card {
+    background-color: transparent; 
+    border-radius: 6px; 
+    padding: 0; 
+    text-align: center;
+    color: #e0e0e0; 
+    cursor: pointer;
+    overflow: hidden;
+    position: relative; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie_card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 20px rgba(215, 24, 42, 0.3); 
+}
+
+.movie_card img {
+    width: 100%; 
+    height: auto;
+    border-radius: 6px; 
+    margin-bottom: 0; 
+    object-fit: cover;
+    display: block; 
+}
+
+.info_rodape {
+    padding: 10px;
+    background-color: #2c2c2c; 
+    border-radius: 0 0 6px 6px;
+}
+
+.info_rodape .title {
+    font-size: 1em; 
+    font-weight: 600;
+    margin: 5px 0 2px 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info_rodape .rating {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #F1BB5B; 
+    margin-top: 5px;
+}
+
+.info_rodape .rating::before {
+    content: "⭐"; 
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+.description_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    height: 100%;
+    
+    background-color: rgba(20, 20, 20, 0.452); 
+    color: white;
+    padding: 10px; 
+    
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;    
+    text-align: center;   
+    
+    border-radius: 6px; 
+}
+
+.movie_card:hover .description_overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.title_overlay {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #F1BB5B;
+    margin-bottom: 8px; 
+}
+
+.overview {
+    font-size: 0.85em;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px black;
+    flex-grow: 1; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 10px 0; 
+}
+

@@ -5,14 +5,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5em 2em;
-    background-color: #383b34; 
-    max-width: 1250px;
+    background-color: #772A23; 
+    max-width: 1590px;
     margin: 10px auto; 
     border-radius: 10px; 
   }
   
   .brand {
-    font-size: 1.2em;
+    font-size: 1.6em;
   }
   
   .brand span {
@@ -26,7 +26,8 @@
   }
   
   .links_list li {
-    margin-right: 1em;
+    margin-right: 3em;
+    font-size: 1em;;
   }
   
   .links_list li a {
@@ -34,7 +35,7 @@
   }
   
   .active {
-    background-color: #5f6a4a;
+    background-color: #D7182A;
     color: #fff;
     border-radius: 100px;
   }

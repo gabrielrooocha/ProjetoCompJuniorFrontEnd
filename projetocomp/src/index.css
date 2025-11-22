@@ -1,8 +1,9 @@
 body {
-  background-color: #CBD6CE;
+  background-color: #000000;
   padding: 0;
   margin: 0;
   font-family: "Lexend";
+  color: #fff;
 }
 
 input::placeholder,
@@ -38,7 +39,8 @@ nav button:hover {
 form {
   max-width: 50%;
   margin: 0 auto;
-  background-color: #F0F0F0;
+  background-color: #772A23;
+  color: #000;
   padding: 2em; 
   border-radius: 8px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -88,23 +90,24 @@ textarea::placeholder {
   border: none;
   padding: 10px 15px;
   font-size: 1em;
+  transition: 0.4s;
 }
 
 .btn.btn-dark {
-  background-color: #000;
-  border-radius: 0;
+  background-color: #D7182A;
+  border-radius: 100PX;
 }
 
 .btn.btn-outline {
   background-color: transparent;
   border-radius: 0;
-  color: #000;
-  border: 1px solid #000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   padding: 7px 30px;
 }
 
 .btn:hover {
-  background-color: #0f730c;
+  background-color: #E21F5D;
   color: #fff;
 }
 

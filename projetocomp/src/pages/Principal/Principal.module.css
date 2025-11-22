@@ -1,78 +1,103 @@
-.home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .search_form {
-    max-width: 100%;
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2em;
-  }
-  
-  .search_form input {
-    margin-right: 10px;
-    width: 50%;
-  }
-  
-  .noposts {
-    text-align: center;
-  }
-  
-  .noposts p {
-    margin-bottom: 1.5em;
-  }
-  
-  .noposts a {
-    padding: 10px 25px;
-  }
+/* ------------------ Layout Principal ------------------ */
 
-/* --- ESTILOS TMDB (NOVO) --- */
-
-.movie_section {
-    margin-top: 40px;
-    padding: 20px 0;
-    border-top: 1px solid #ddd;
+/* ✅ NOVO: Container para fixar o TÍTULO e a BARRA DE PESQUISA */
+.search_header {
+  position: grid; 
+  top: 0; 
+  z-index: 10; 
+  background-color: transparent; 
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 20px 0;
+  width: 100%;
 }
 
-.movie_section h2 {
-    margin-bottom: 20px;
+/* ------------------ Barra de Pesquisa ------------------ */
+
+.search_form {
+  max-width: 100%;
+  width: 50%; 
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0; 
+  background-color: #772A23;
 }
 
-/* Container que permite a rolagem horizontal */
+.search_form input {
+  margin-right: 10px;
+  width: 100%;
+}
+
+/* ------------------ Container da Lista (GRID) ------------------ */
+
 .movie_list {
-    display: flex;
-    overflow-x: auto; 
-    gap: 15px;
-    padding-bottom: 15px; 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none; 
+  padding: 0;
+  margin: 20px auto;
+  max-width: 90%;
 }
+
+/* ------------------ Card Individual de Filme ------------------ */
 
 .movie_card {
-    flex-shrink: 0; /* Impede que os cards encolham */
-    width: 150px; /* Largura fixa para o card de filme */
-    text-align: center;
-    cursor: pointer;
+  /* ✅ Ajustado: Remove largura fixa ou flex-shrink para não atrapalhar o grid */
+  background-color: transparent; 
+  border-radius: 6px; 
+  padding: 10px;
+  text-align: center;
+  color: #e0e0e0; 
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.movie_card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(158, 158, 158, 0.15); 
+}
+
+/* ------------------ Elementos do Card ------------------ */
 
 .movie_card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+  width: 100%; 
+  height: auto;
+  border-radius: 4px; 
+  margin-bottom: 10px;
+  object-fit: cover;
+  display: block; 
 }
 
-.movie_card img:hover {
-    transform: scale(1.05);
+/* Título e Avaliação */
+.movie_card .title {
+  font-size: 1em; 
+  font-weight: 600;
+  margin: 5px 0 2px 0;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.movie_card h4 {
-    font-size: 0.9em;
-    margin-top: 5px;
-    white-space: nowrap; /* Impede que o título quebre linha */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Adiciona "..." se o título for muito longo */
+.movie_card .rating {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #F1BB5B; 
+  margin-top: 5px;
+}
+
+.rating::before {
+  content: "⭐";
+  margin-right: 5px;
+  font-size: 1.1em;
+}
+
+.description {
+  display: none; 
 }
