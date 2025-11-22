@@ -1,6 +1,7 @@
 import styles from "./Login.module.css";
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import { Link } from "react-router-dom"; 
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -18,14 +19,11 @@ const Login = () => {
             email,
             password,
         };
-
+        
         const res = await login(user);
-
-        console.log(res);
     };
 
     useEffect(() => {
-        console.log(authErro);
         if (authErro) {
             setErro(authErro);
         }
@@ -65,6 +63,10 @@ const Login = () => {
                     </button>
                 )}
                 {erro && <p className="erro">{erro}</p>}
+
+                <p className={styles.forgot_password}>
+                    <Link to="/forgotpassword">Esqueceu sua senha?</Link>
+                </p>
             </form>
         </div>
     );

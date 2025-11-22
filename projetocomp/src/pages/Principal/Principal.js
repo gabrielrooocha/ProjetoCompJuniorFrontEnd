@@ -83,7 +83,6 @@ const Principal = () => {
       
       {/* Lista de Filmes*/}
       <div> 
-        {loading && <p>Carregando filmes...</p>}
         {error && <p className="error">{error}</p>}
         
         {!loading && !error && movies.length === 0 && (

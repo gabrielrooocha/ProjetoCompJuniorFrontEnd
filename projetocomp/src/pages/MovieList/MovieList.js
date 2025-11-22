@@ -30,11 +30,6 @@ export default function MovieList () {
     const handleMovieClick = (movie) => {
         navigate(`/posts/create?movieId=${movie.id}`);
     };
-
-
-    if (movies.length === 0) {
-        return <p>Carregando filmes...</p>;
-    }
     
     return(
         <ul className={styles.movie_list}> 
