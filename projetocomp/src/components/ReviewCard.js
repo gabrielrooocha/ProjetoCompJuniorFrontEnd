@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../firebase/config';
 import { doc, deleteDoc } from "firebase/firestore";
-import { useUpdateDocument } from '../hooks/useUpdateDocument'; // Novo Hook
+import { useUpdateDocument } from '../hooks/useUpdateDocument';
 
 import styles from './ReviewCard.module.css';
 
@@ -67,15 +67,11 @@ const ReviewCard = ({ review }) => {
 
     return (
         <div className={styles.review_card}>
-            
-            {/* Mensagem de feedback (sucesso/erro/loading) */}
             {message && (
                 <p className={message.type === 'error' ? styles.error_message : styles.success_message}>
                     {message.text}
                 </p>
             )}
-
-            {/* HEADER COM POSTER E TÍTULO */}
             <div className={styles.header}>
                 {review.moviePoster && (
                     <img 
@@ -89,8 +85,6 @@ const ReviewCard = ({ review }) => {
                     <p className={styles.date}>Avaliado em: {date}</p>
                 </div>
             </div>
-
-            {/* CONTEÚDO: MODO DE EDIÇÃO VS MODO DE VISUALIZAÇÃO */}
             <form onSubmit={handleSave}>
                 <div className={styles.content}>
                     <label>
@@ -118,7 +112,6 @@ const ReviewCard = ({ review }) => {
                     </label>
                 </div>
 
-                {/* AÇÕES */}
                 <div className={styles.actions}>
                     {!isEditing ? (
                         <>

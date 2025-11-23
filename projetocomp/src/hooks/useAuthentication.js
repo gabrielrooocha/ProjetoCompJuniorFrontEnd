@@ -6,7 +6,7 @@ import{
     signInWithEmailAndPassword,
     updateProfile,
     signOut,
-    sendPasswordResetEmail, // Importado a função de redefinição
+    sendPasswordResetEmail, 
 } from 'firebase/auth'
 
 import { useState, useEffect } from 'react'
@@ -78,7 +78,7 @@ export const useAuthentication = () => {
         
         try {
           await signInWithEmailAndPassword(auth, data.email, data.password);
-          setLoading(false); // Adicionado para garantir que o loading seja falso no sucesso
+          setLoading(false); 
         } catch (error) {
           let systemErrorMessage;
 
@@ -92,7 +92,7 @@ export const useAuthentication = () => {
           
           setErro(systemErrorMessage);
         } finally {
-            setLoading(false); // Garante que o loading seja falso após a tentativa
+            setLoading(false); 
         }
     }
 
