@@ -1,9 +1,7 @@
-// src/components/MovieCardHorizontal.js
 import React from 'react';
 import styles from './MovieCardHorizontal.module.css';
 
 const MovieCardHorizontal = ({ movie }) => {
-    // Encontra o nome do primeiro gênero (opcional)
     const genreNames = { 28: "Ação", 12: "Aventura", 35: "Comédia", 18: "Drama", 14: "Fantasia", 27: "Terror", 10749: "Romance", 878: "Ficção", 16: "Animação", 99: "Documentário" };
     const mainGenreId = movie.genre_ids?.[0];
     const mainGenre = mainGenreId ? genreNames[mainGenreId] : 'Geral';

@@ -1,4 +1,3 @@
-// src/components/ReviewCard.js (MODIFICADO)
 import React, { useState } from 'react';
 import { db } from '../firebase/config';
 import { doc, deleteDoc } from "firebase/firestore";

@@ -1,3 +1,5 @@
+/* ... (estilos existentes) */
+
 .login {
   text-align: center;
   padding: 20px;
@@ -6,6 +8,18 @@
 .login p {
   color: #aaa;
 }
+
+/* Sugestão de estilo para a classe 'erro' */
+.erro {
+    color: #e33; /* Cor vermelha para erros */
+    margin-top: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #e33;
+    background-color: #fee;
+    border-radius: 4px;
+}
+
 
 @media (min-width: 600px) {
   .login {

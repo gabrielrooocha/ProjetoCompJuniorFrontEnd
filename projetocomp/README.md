@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# CINE SITE 🎬
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Uma plataforma moderna para descobrir filmes, visualizar destaques e compartilhar suas próprias avaliações e notas com a comunidade.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 💻 Tecnologias Utilizadas
 
-### `npm start`
+Este projeto front-end foi desenvolvido com **React.js** e integra-se com serviços externos para autenticação, banco de dados e dados de filmes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Frontend:** React.js (com hooks e componentes funcionais)
+* [cite_start]**Roteamento:** React Router DOM [cite: 2093]
+* **Estilização:** CSS Modules
+* [cite_start]**Backend & Banco de Dados:** Google Firebase (Authentication e Firestore) [cite: 2342-2562]
+* [cite_start]**Integração Externa:** The Movie Database (TMDB) API para dados de filmes (busca, destaques e recomendações) 
+* [cite_start]**Requisições HTTP:** Axios [cite: 2564]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Funcionalidades Principais
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O CineSITE oferece uma experiência completa para entusiastas de cinema, combinando recursos de um portal de filmes com uma rede social de avaliações:
 
-### `npm run build`
+### 🍿 Filmes & Descoberta
+* [cite_start]**Busca de Filmes:** Pesquisa por filmes na base de dados do TMDB [cite: 2020-2027, 2625].
+* [cite_start]**Destaques e Recomendações:** Exibição de filmes populares e recomendações dinâmicas de diferentes gêneros (Ação, Comédia, Drama, Romance, etc.) [cite: 2567-2612].
+* [cite_start]**Exibição de Dados:** Mostra título, pôster, gênero principal e nota média do TMDB para cada filme [cite: 2073-2087].
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📝 Avaliações de Usuários
+* [cite_start]**Criação de Avaliações:** Usuários logados podem selecionar um filme e publicar suas próprias notas (0 a 10) e avaliações de texto[cite: 2124].
+* [cite_start]**Listagem de Reviews:** Exibe as avaliações criadas, com informações como título do filme, criador, tags e data [cite: 2149-2159, 2240].
+* [cite_start]**Gestão de Reviews:** No painel do usuário, é possível **Editar** a nota e o conteúdo da avaliação ou **Deletá-la** permanentemente [cite: 2172-2313].
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🔒 Autenticação e Segurança
+* [cite_start]**Cadastro e Login:** Sistema de autenticação completo com controle de erros [cite: 2362-2416].
+* [cite_start]**Controle de Acesso:** Navegação condicional (por exemplo, "Nova Avaliação" só aparece para usuários logados) [cite: 2111-2138].
+* [cite_start]**Redefinição de Senha:** Funcionalidade para solicitar um link de redefinição de senha via e-mail [cite: 2417-2439].
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Como Executar o Projeto Localmente
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Siga os passos abaixo para configurar e rodar o projeto em seu ambiente de desenvolvimento.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Pré-requisitos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Certifique-se de ter o **Node.js** e o **npm** (ou yarn) instalados.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Instalação
 
-## Learn More
+Clone o repositório e instale as dependências do projeto:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Clone o repositório (substitua pela URL real)
+git clone [URL_DO_SEU_REPOSITÓRIO]
+cd cinesite
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Instale as dependências
+npm install
+# ou
+yarn install
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# .env (exemplo de variáveis que devem ser configuradas)
+REACT_APP_FIREBASE_API_KEY="[SUA_API_KEY_FIREBASE]"
+REACT_APP_FIREBASE_AUTH_DOMAIN="[SEU_AUTH_DOMAIN]"
+REACT_APP_FIREBASE_PROJECT_ID="[SEU_PROJECT_ID]"
+REACT_APP_FIREBASE_STORAGE_BUCKET="[SEU_STORAGE_BUCKET]"
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID="[SEU_SENDER_ID]"
+REACT_APP_FIREBASE_APP_ID="[SEU_APP_ID]"
