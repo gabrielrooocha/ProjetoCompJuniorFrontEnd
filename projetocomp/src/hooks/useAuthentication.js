@@ -11,9 +11,26 @@ import{
 
 import { useState, useEffect } from 'react'
 
+const MAX_ATTEMPTS = 3;
+const BLOCK_DURATION = 60; 
+
 export const useAuthentication = () => {
     const [erro, setErro] = useState(null)
     const [loading, setLoading] = useState(null)
+
+    const [tentativas, setTentativas] = useState(() => {
+        const storedAttempts = localStorage.getItem('loginAttempts');
+        return storedAttempts ? Number(storedAttempts) : 0;
+    });
+    const [isBlocked, setIsBlocked] = useState(() => {
+        const storedBlockTime = localStorage.getItem('blockTimestamp');
+        if (storedBlockTime) {
+            const timeElapsed = Math.floor((Date.now() - Number(storedBlockTime)) / 1000);
+            return timeElapsed < BLOCK_DURATION;
+        }
+        return false;
+    });
+    const [countdown, setCountdown] = useState(0);
 
     const [cancelled, setCancelled] = useState(false)
     const auth = getAuth();
@@ -23,6 +40,49 @@ export const useAuthentication = () => {
             return;
         }
     }
+
+    useEffect(() => {
+        localStorage.setItem('loginAttempts', tentativas.toString());
+    }, [tentativas]);
+
+    useEffect(() => {
+        let timer;
+        
+        if (isBlocked) {
+            const storedBlockTime = localStorage.getItem('blockTimestamp');
+            const blockStartTime = Number(storedBlockTime);
+            const timePassed = Math.floor((Date.now() - blockStartTime) / 1000);
+            const timeLeft = Math.max(0, BLOCK_DURATION - timePassed);
+            
+            setCountdown(timeLeft);
+
+            if (timeLeft > 0) {
+                timer = setInterval(() => {
+                    setCountdown(prev => {
+                        if (prev <= 1) {
+                            clearInterval(timer);
+                            setIsBlocked(false);
+                            setTentativas(0);
+                            localStorage.removeItem('blockTimestamp');
+                            localStorage.removeItem('loginAttempts');
+                            return 0;
+                        }
+                        return prev - 1;
+                    });
+                }, 1000);
+            } else {
+                setIsBlocked(false);
+                setTentativas(0);
+                localStorage.removeItem('blockTimestamp');
+                localStorage.removeItem('loginAttempts');
+            }
+        } else {
+            setCountdown(0);
+        }
+
+        return () => clearInterval(timer);
+    }, [isBlocked]);
+
 
     const createUser = async (data) => {
         checkCancelled()
@@ -72,12 +132,21 @@ export const useAuthentication = () => {
 
     const login = async (data) => {
         checkCancelled();
+
+        if (isBlocked) {
+            setErro(`Tentativas excedidas! Aguarde ${countdown}s.`);
+            return;
+        }
         
         setLoading(true);
-        setErro(false);
+        setErro(null);
         
         try {
           await signInWithEmailAndPassword(auth, data.email, data.password);
+          
+          setTentativas(0);
+          localStorage.removeItem('loginAttempts');
+          
           setLoading(false); 
         } catch (error) {
           let systemErrorMessage;
@@ -91,12 +160,22 @@ export const useAuthentication = () => {
           }
           
           setErro(systemErrorMessage);
+
+          setTentativas(prev => {
+              const newAttempts = prev + 1;
+
+              if (newAttempts >= MAX_ATTEMPTS) {
+                  setIsBlocked(true);
+                  localStorage.setItem('blockTimestamp', Date.now().toString());
+                  return 0;
+              }
+              return newAttempts;
+          });
         } finally {
             setLoading(false); 
         }
     }
 
-    // Função para enviar link de redefinição de senha
     const sendPasswordReset = async (email) => {
         checkCancelled();
         setLoading(true);
@@ -135,6 +214,8 @@ export const useAuthentication = () => {
         loading,
         logout,
         login,
-        sendPasswordReset, 
+        sendPasswordReset,
+        isBlocked,
+        countdown,
     }
 }

@@ -1,6 +1,6 @@
 # CINE SITE
 
-> Uma plataforma moderna para descobrir filmes, visualizar destaques e compartilhar suas próprias avaliações e notas com a comunidade.
+> Uma plataforma para descobrir filmes, visualizar destaques e compartilhar suas próprias avaliações e notas com a comunidade.
 
 ---
 

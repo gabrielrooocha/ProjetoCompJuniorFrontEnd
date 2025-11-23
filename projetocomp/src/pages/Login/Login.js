@@ -7,18 +7,13 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [erro, setErro] = useState("");
-    const [tentativas, setTentativas] = useState(0);
-    const [isBlockedLocal, setIsBlockedLocal] = useState(false);
-    const [countdownLocal, setCountdownLocal] = useState(60);
 
-
-    // NOVO: Importa os estados isBlocked e countdown
     const { 
         login, 
         erro: authErro, 
         loading,
-        isBlocked, // Estado de bloqueio
-        countdown // Contador regressivo
+        isBlocked, 
+        countdown 
     } = useAuthentication();
 
     useEffect(() => {
@@ -28,32 +23,11 @@ const Login = () => {
         }
     }, []);
 
-    useEffect(() => {
-        let timer;
-    
-        if (isBlockedLocal) {
-            timer = setInterval(() => {
-                setCountdownLocal((prev) => {
-                    if (prev <= 1) {
-                        clearInterval(timer);
-                        setIsBlockedLocal(false);
-                        setTentativas(0);
-                        return 60;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
-        }
-    
-        return () => clearInterval(timer);
-    }, [isBlockedLocal]);
-    
-
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        if (isBlockedLocal) {
-            setErro(`Tentativas excedidas! Aguarde ${countdownLocal}s`);
+        if (isBlocked) {
+            setErro(`Tentativas excedidas! Aguarde ${countdown}s`);
             return;
         }
     
@@ -67,20 +41,6 @@ const Login = () => {
         localStorage.setItem('lastUsedEmail', email);
 
         await login(user);
-
-        // Se houve erro do backend — conta tentativa
-        if (authErro) {
-            setTentativas((prev) => {
-            const novas = prev + 1;
-
-            if (novas >= 3) {
-                setIsBlockedLocal(true);
-                return 0;
-            }
-
-            return novas;
-            });
-        }
     };
     
 
@@ -90,22 +50,18 @@ const Login = () => {
         }
     }, [authErro]);
 
-    // NOVO: Monitora o estado de bloqueio e atualiza a mensagem de erro/bloqueio
     useEffect(() => {
         if (isBlocked) {
             setErro(`Tentativas excedidas! Bloqueado por ${countdown} segundos.`);
         } else if (countdown === 0 && !authErro) {
-             // Limpa o erro de bloqueio quando o contador zera e não há outro erro
             setErro(''); 
         }
     }, [isBlocked, countdown, authErro]);
 
-    // NOVO: Variável para controlar se o botão deve estar desabilitado
-    const isButtonDisabled = loading || isBlocked || isBlockedLocal;
-    // NOVO: Texto do botão
-    const buttonText = isBlockedLocal
-    ? `Bloqueado: ${countdownLocal}s`
-    : (isBlocked ? `Bloqueado: ${countdown}s` : (loading ? "Aguarde..." : "Entrar"));
+    const isButtonDisabled = loading || isBlocked;
+    const buttonText = isBlocked
+    ? `Bloqueado: ${countdown}s`
+    : (loading ? "Aguarde..." : "Entrar");
 
 
     return (
@@ -135,12 +91,10 @@ const Login = () => {
                         value={password}
                     />
                 </label>
-                {/* NOVO: Usa a variável isButtonDisabled e buttonText */}
                 <button className="btn" disabled={isButtonDisabled}>
                     {buttonText}
                 </button>
 
-                {/* Removidos os condicionais de loading, pois o novo botão já lida com todos os estados */}
                 {erro && <p className="erro">{erro}</p>}
 
                 <p className={styles.forgot_password}>
